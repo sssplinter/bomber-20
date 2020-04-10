@@ -1,4 +1,16 @@
 package game;
 
-public class Enemy {
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+
+public class Enemy extends Pane {
+    private int moveSpeed;
+    //todo разобраться с направление с помощью enum
+    private int positionX;
+    private int positionY;
+    private boolean alive = true;
+    private final int size = Constants.ENEMY_SIZE;
+    private Image image = new Image(getClass().getResourceAsStream(Constants.ENEMY_IMAGE));
+    private ImageView imageView = new ImageView(image);
 }
