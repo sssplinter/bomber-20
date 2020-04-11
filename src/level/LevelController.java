@@ -1,6 +1,7 @@
 package level;
 
 import game.LevelData;
+import game.LevelGenerator;
 import game.blocks.Block;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,7 +26,9 @@ public class LevelController {
     }
 
     public void setLevel(final int levelNumber) {
-
+        final LevelGenerator generator = new LevelGenerator(levelNumber);
+        levelData = generator.generateLevelData();
+        initPane();
     }
 
 
@@ -47,5 +50,4 @@ public class LevelController {
             }
         }
     }
-
 }
