@@ -18,7 +18,7 @@ public class LevelData {
     public int getHeight(){
         return height;
     }
-
+////////////// разрушается или нет
     public Block getBlockByPosition(final int posX, final int posY){
         return levelContent[posX][posY];
     }
@@ -28,4 +28,22 @@ public class LevelData {
         final int posY = cordY / Constants.BLOCK_SIZE;
         return getBlockByPosition(posX, posY);
     }
+////////////////////////////////////////////////
+    public double getPaneHeight(){
+        return height * Constants.BLOCK_SIZE;
+    }
+
+    public double getPaneWidth(){
+        return width * Constants.BLOCK_SIZE;
+    }
+///////////////// для размещения
+    public double getBlockCordX(final int posX){
+          return posX * Constants.BLOCK_SIZE;
+    }
+
+    public double getBlockCordY(final int posY){
+          return posY * Constants.BLOCK_SIZE;
+    }
+/////////////////r
+
 }
