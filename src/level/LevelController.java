@@ -15,7 +15,7 @@ public class LevelController {
     Pane root;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         root.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -24,15 +24,21 @@ public class LevelController {
         });
     }
 
-    private void initPane(){
+    public void setLevel(final int levelNumber) {
+
+    }
+
+
+    private void initPane() {
         final double paneHeight = levelData.getPaneHeight();
         final double paneWidth = levelData.getPaneWidth();
         root.setPrefHeight(paneHeight);
         root.setPrefWidth(paneWidth);
+        renderBackground();
     }
 
-    private void renderBackground(){
-        for(int posX = 0; posX < levelData.getWidth(); posX++) {
+    private void renderBackground() {
+        for (int posX = 0; posX < levelData.getWidth(); posX++) {
             for (int posY = 0; posY < levelData.getHeight(); posY++) {
                 final Block block = levelData.getBlockByPosition(posX, posY);
                 block.setLayoutX(levelData.getBlockCordX(posX));

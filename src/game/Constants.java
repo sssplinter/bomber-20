@@ -13,4 +13,6 @@ public class Constants {
     public static final String UNBREAKABLE_BLOCK_IMAGE = "images/unB.png";
     public static final String BREAKABLE_BOCK_IMAGE = "images/bmenStend.png";
     public static final String BACKGROUND_BLOCK_IMAGE = "images/bmenStend.png";
+
+    public static final String LEVEL_1_PATH = "levels/level1";
 }
