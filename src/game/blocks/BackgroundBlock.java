@@ -2,9 +2,9 @@ package game.blocks;
 
 import game.Constants;
 
-public class Background extends Block {
+public class BackgroundBlock extends Block {
 
-    public Background() {
+    public BackgroundBlock() {
         super();
     }
 
