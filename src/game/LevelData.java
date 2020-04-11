@@ -3,7 +3,7 @@ package game;
 public class LevelData {
 
     //TODO  заменить на матрицу блоков
-    private int[][] levelContent;
+    private Block[][] levelContent;
     private int[][] enemyLocation;
 
     private int width ;
@@ -15,5 +15,15 @@ public class LevelData {
 
     public int getHeight(){
         return height;
+    }
+
+    public Block getBlockByPosition(final int posX, final int posY){
+        return levelContent[posX][posY];
+    }
+
+    public Block getBlockByCoordinates(final int cordX, final int cordY){
+        final int posX = cordX / Constants.BLOCK_SIZE;
+        final int posY = cordY / Constants.BLOCK_SIZE;
+        return getBlockByPosition(posX, posY);
     }
 }
