@@ -1,5 +1,7 @@
 package game;
 
+import game.blocks.Block;
+
 public class LevelData {
 
     //TODO  заменить на матрицу блоков
