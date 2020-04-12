@@ -1,5 +1,7 @@
 package game.blocks;
 
+import game.Constants;
+
 public class BreakableBlock extends Block {
     @Override
     boolean destroy() {
@@ -13,6 +15,6 @@ public class BreakableBlock extends Block {
 
     @Override
     String getImagePath() {
-        return null;
+        return Constants.BREAKABLE_BOCK_IMAGE;
     }
 }

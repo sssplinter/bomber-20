@@ -13,7 +13,7 @@ public class LevelData {
         final BlockFactory blockFactory = new BlockFactory();
         levelContent = new Block[blockCodes.length][blockCodes[0].length];
         for(int i = 0; i < levelContent.length; i++){
-            for(int j = 0; j < levelContent[0].length; i++){
+            for(int j = 0; j < levelContent[0].length; j++){
                 levelContent[i][j] = blockFactory.createBlock(blockCodes[i][j]);
             }
         }

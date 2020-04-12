@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class LevelGenerator {
 
-    private static final String BASE_FILE_PATH = "/levels/level";
+    private static final String BASE_FILE_PATH = "./src/levels/level";
 
     private final int levelNumber;
 
@@ -21,13 +21,21 @@ public class LevelGenerator {
     }
 
     private int[][] getBlockCodesFromFile() {
-        Scanner scan = new Scanner(getFilePath());
+        final String filePath = getFilePath();
+
+        Scanner scan = null;
+        try {
+            scan = new Scanner(new File(filePath));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         final int matrixWidth = scan.nextInt();
+
         final int matrixHeight = scan.nextInt();
         final int[][] matrix = new int[matrixWidth][matrixHeight];
-        for (int i = 0; i < matrixWidth; i++) {
-            for (int j = 0; j < matrixHeight; j++) {
-                matrix[i][j] = scan.nextInt();
+        for (int i = 0; i < matrixHeight; i++) {
+            for (int j = 0; j < matrixWidth; j++) {
+                matrix[j][i] = scan.nextInt();
             }
         }
         return matrix;

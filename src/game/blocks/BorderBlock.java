@@ -1,5 +1,7 @@
 package game.blocks;
 
+import game.Constants;
+
 public class BorderBlock extends Block {
 
     @Override
@@ -14,6 +16,6 @@ public class BorderBlock extends Block {
 
     @Override
     String getImagePath() {
-        return null;
+        return Constants.UNBREAKABLE_BLOCK_IMAGE;
     }
 }

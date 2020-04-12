@@ -25,12 +25,10 @@ public class LevelController {
         });
     }
 
-    public void setLevel(final int levelNumber) {
-        final LevelGenerator generator = new LevelGenerator(levelNumber);
-        levelData = generator.generateLevelData();
+    public void setLevelData(final LevelData levelData) {
+        this.levelData = levelData;
         initPane();
     }
-
 
     private void initPane() {
         final double paneHeight = levelData.getPaneHeight();
