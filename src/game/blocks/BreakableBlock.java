@@ -4,17 +4,17 @@ import game.Constants;
 
 public class BreakableBlock extends Block {
     @Override
-    boolean destroy() {
+    protected Boolean destroy() {
+        return false;//TODO
+    }
+
+    @Override
+    public boolean isPermeable() {
         return false;
     }
 
     @Override
-    boolean isPermeable() {
-        return false;
-    }
-
-    @Override
-    String getImagePath() {
+    protected String getImagePath() {
         return Constants.BREAKABLE_BOCK_IMAGE;
     }
 }

@@ -8,6 +8,7 @@ public class LevelData {
     //TODO  заменить на матрицу блоков
     private Block[][] levelContent;
     private int[][] enemyLocation;
+    Character bombermen;
 
     public LevelData(final int[][] blockCodes){
         final BlockFactory blockFactory = new BlockFactory();
@@ -17,6 +18,10 @@ public class LevelData {
                 levelContent[i][j] = blockFactory.createBlock(blockCodes[i][j]);
             }
         }
+    }
+
+    public Character cretePerson(){
+        return new Character(this);
     }
 
     public int getWidth() {

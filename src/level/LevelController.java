@@ -1,5 +1,6 @@
 package level;
 
+import game.Character;
 import game.LevelData;
 import game.LevelGenerator;
 import game.blocks.Block;
@@ -45,6 +46,13 @@ public class LevelController {
                 block.setLayoutX(levelData.getBlockCordX(posX));
                 block.setLayoutY(levelData.getBlockCordY(posY));
                 root.getChildren().add(block);
+            }
+            Character bomber = levelData.cretePerson();
+            bomber.setLayoutX(levelData.getBlockCordX(1));
+            bomber.setLayoutY(levelData.getBlockCordY(1));
+            root.getChildren().add(bomber);
+            for(int i =0; i < 3; i++){
+               // bomber.isDownMoveAvailable();
             }
         }
     }

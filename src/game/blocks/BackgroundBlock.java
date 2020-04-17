@@ -9,17 +9,17 @@ public class BackgroundBlock extends Block {
     }
 
     @Override
-    boolean destroy() {
+    protected Boolean destroy() {
         return false;
     }
 
     @Override
-    boolean isPermeable() {
+    public boolean isPermeable() {
         return true;
     }
 
     @Override
-    String getImagePath() {
+    protected String getImagePath() {
         return Constants.BACKGROUND_BLOCK_IMAGE;
     }
 }
