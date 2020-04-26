@@ -11,7 +11,7 @@ public class Character extends Pane {
 
     private boolean alive = true;
 
-    private int moveSpeed;
+    private int moveSpeed = 16;
 
     private int positionX;
     private int positionY;
@@ -19,57 +19,79 @@ public class Character extends Pane {
 
 //    private final int size = Constants.CHARACTER_SIZE;
 
-    Character(LevelData levelData){
+    Character(LevelData levelData) {
         this.levelData = levelData;
         final Image image = new Image(getClass().getResourceAsStream(Constants.CHARACTER_IMAGE));
         final ImageView imageView = new ImageView(image);
         this.getChildren().add(imageView);
     }
 
-    private boolean isLeftMoveAvailable(){
-       return ((levelData.getBlockByCoordinates((int)(this.getLayoutX()) - moveSpeed, (int)(this.getLayoutY())).isPermeable()) &&
-                (levelData.getBlockByCoordinates((int)(this.getLayoutX()) - moveSpeed, (int)(this.getLayoutY()) + Constants.BLOCK_SIZE - 1).isPermeable()));
-    }
-
-    private boolean isRightMoveAvailable(){
-       return ((levelData.getBlockByCoordinates((int)(this.getLayoutX()) + moveSpeed, (int)(this.getLayoutY())).isPermeable()) &&
-                (levelData.getBlockByCoordinates((int)(this.getLayoutX()) + moveSpeed, (int)(this.getLayoutY()) + Constants.BLOCK_SIZE - 1).isPermeable()));
-
-    }
-
-    private boolean isUpMoveAvailable(){
-       return ((levelData.getBlockByCoordinates((int)(this.getLayoutX()), (int)(this.getLayoutY()) - moveSpeed).isPermeable()) &&
-                (levelData.getBlockByCoordinates((int)(this.getLayoutX()) + Constants.BLOCK_SIZE - 1, (int)(this.getLayoutY()) - moveSpeed).isPermeable()));
-
-    }
-
-    private boolean isDownMoveAvailable(){
-      return ((levelData.getBlockByCoordinates((int)(this.getLayoutX()), (int)(this.getLayoutY()) + moveSpeed).isPermeable()) &&
-                (levelData.getBlockByCoordinates((int)(this.getLayoutX()) + Constants.BLOCK_SIZE - 1, (int)(this.getLayoutY()) + moveSpeed).isPermeable()));
-    }
-
-    public void moveLeft(){
-        if(isLeftMoveAvailable()){
-            this.setLayoutX(getLayoutX() + moveSpeed);
+    private int getAvailableLeftSteps() {
+        for (int i = 1; i <= moveSpeed; i++) {
+            if (!(levelData.getBlockByCoordinates((int) (getLayoutX()) - moveSpeed,
+                    (int) (getLayoutY())).isPermeable()) &&
+                    (levelData.getBlockByCoordinates((int) (getLayoutX()) - moveSpeed,
+                            (int) (getLayoutY()) + Constants.BLOCK_SIZE - 1).isPermeable())) {
+                return i - 1;
+            }
         }
+        return moveSpeed;
     }
 
-    public void moveRight(){
-        if(isRightMoveAvailable()){
-            this.setLayoutX(getLayoutX() - moveSpeed);
+    private int getAvailableRightSteps() {
+        for (int i = 1; i <= moveSpeed; i++) {
+            if (!(levelData.getBlockByCoordinates((int) (getLayoutX()) + i,
+                    (int) (getLayoutY())).isPermeable()) &&
+                    (levelData.getBlockByCoordinates((int) (getLayoutX()) + i,
+                            (int) (getLayoutY()) + Constants.BLOCK_SIZE - 1).isPermeable())) {
+                return i - 1;
+            }
         }
+        return moveSpeed;
     }
 
-    public void moveUp(){
-        if(isUpMoveAvailable()){
-            this.setLayoutY(getLayoutY() + moveSpeed);
+    private int getAvailableUpSteps() {
+        for (int i = 1; i <= moveSpeed; i++) {
+            if (!(levelData.getBlockByCoordinates((int) (getLayoutX()),
+                    (int) (getLayoutY()) - moveSpeed).isPermeable()) &&
+                    (levelData.getBlockByCoordinates((int) (getLayoutX()) + Constants.BLOCK_SIZE - 1,
+                            (int) (getLayoutY()) - moveSpeed).isPermeable())) {
+                return i - 1;
+            }
         }
+        return moveSpeed;
     }
 
-    public void moveDown(){
-        if(isDownMoveAvailable()){
-            this.setLayoutY(getLayoutY() + moveSpeed);
+    private int getAvailableDownSteps() {
+        for (int i = 1; i <= moveSpeed; i++) {
+            if (!(levelData.getBlockByCoordinates((int) (getLayoutX()),
+                    (int) (getLayoutY()) + moveSpeed).isPermeable()) &&
+                    (levelData.getBlockByCoordinates((int) (getLayoutX()) + Constants.BLOCK_SIZE - 1,
+                            (int) (getLayoutY()) + moveSpeed).isPermeable())) {
+                return i - 1;
+            }
         }
+        return moveSpeed;
+    }
+
+    public void moveLeft() {
+        final int availableSteps = getAvailableLeftSteps();
+            setLayoutX(getLayoutX() - availableSteps);
+    }
+
+    public void moveRight() {
+        final int availableSteps = getAvailableRightSteps();
+            setLayoutX(getLayoutX() + availableSteps);
+    }
+
+    public void moveUp() {
+        final int availableSteps = getAvailableUpSteps();
+            setLayoutY(getLayoutY() + availableSteps);
+    }
+
+    public void moveDown() {
+        final int availableSteps = getAvailableDownSteps();
+            setLayoutY(getLayoutY() + availableSteps);
     }
 
 }
