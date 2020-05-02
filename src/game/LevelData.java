@@ -20,8 +20,8 @@ public class LevelData {
         }
     }
 
-    public Character cretePerson(){
-        return new Character(this);
+    public Character creteHero(){
+        return new Hero(this);
     }
 
     public int getWidth() {
@@ -42,6 +42,7 @@ public class LevelData {
         final int posY = cordY / Constants.BLOCK_SIZE;
         return getBlockByPosition(posX, posY);
     }
+
     ////////////////////////////////////////////////
     public double getPaneHeight() {
         return getHeight() * Constants.BLOCK_SIZE;

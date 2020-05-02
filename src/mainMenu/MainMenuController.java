@@ -15,7 +15,8 @@ public class MainMenuController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../levelMenu/levelMenu.fxml"));
         Parent root = (Parent) loader.load();
         Stage stage= new Stage();
-        stage.setScene(new Scene(root, 640, 780));
+        stage.setTitle("BOMBERMEN");
+        stage.setScene(new Scene(root, 640, 480));
         stage.showAndWait();
     }
 }

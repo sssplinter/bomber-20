@@ -4,24 +4,41 @@ import game.Character;
 import game.LevelData;
 import game.LevelGenerator;
 import game.blocks.Block;
+import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class LevelController {
 
     private LevelData levelData;
+    private Character bomber;
+
 
     @FXML
     Pane root;
+//todo,не listener
+    private void setListeners() {
+        final Scene scene = root.getScene();
+        scene.setOnKeyPressed(event -> {
+            if ((event.getCode() == KeyCode.UP) || event.getCode() == KeyCode.W) {
+                bomber.moveUp();
+            }
 
-    @FXML
-    public void initialize() {
-        root.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-//                TODO
+            if ((event.getCode() == KeyCode.DOWN) || event.getCode() == KeyCode.S) {
+                bomber.moveDown();
+            }
+
+            if ((event.getCode() == KeyCode.LEFT) || event.getCode() == KeyCode.A) {
+                bomber.moveLeft();
+            }
+
+            if ((event.getCode() == KeyCode.RIGHT) || event.getCode() == KeyCode.D) {
+                bomber.moveRight();
             }
         });
     }
@@ -29,6 +46,7 @@ public class LevelController {
     public void setLevelData(final LevelData levelData) {
         this.levelData = levelData;
         initPane();
+        setListeners();
     }
 
     private void initPane() {
@@ -47,13 +65,15 @@ public class LevelController {
                 block.setLayoutY(levelData.getBlockCordY(posY));
                 root.getChildren().add(block);
             }
-            Character bomber = levelData.cretePerson();
-            bomber.setLayoutX(levelData.getBlockCordX(1));
-            bomber.setLayoutY(levelData.getBlockCordY(1));
-            root.getChildren().add(bomber);
-            for(int i =0; i < 3; i++){
-               // bomber.isDownMoveAvailable();
-            }
+
         }
+        bomber = levelData.cretePerson();
+        final double layoutX = levelData.getBlockCordX(1);
+        final double layoutY = levelData.getBlockCordY(1);
+        bomber.setLayoutX(layoutX);
+        bomber.setLayoutY(layoutY);
+        root.getChildren().add(bomber);
     }
+
+
 }

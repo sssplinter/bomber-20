@@ -1,8 +1,7 @@
 package game;
 
-public class Enemy extends Character {
-
-    Enemy(LevelData levelData) {
+public class Hero extends Character {
+    Hero(LevelData levelData) {
         super(levelData);
     }
 
@@ -18,7 +17,6 @@ public class Enemy extends Character {
 
     @Override
     protected String getImagePath() {
-        return Constants.ENEMY_IMAGE;
+        return Constants.CHARACTER_IMAGE;
     }
 }
-
