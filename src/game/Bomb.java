@@ -1,18 +1,41 @@
 package game;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import game.blocks.Block;
+import utilities.Executable;
 
-public class Bomb extends Pane {
+public class Bomb extends Block {
 
+    private final Executable explosion;
 
-    //todo разобраться с направление с помощью enum
-    private int positionX;
-    private int positionY;
-    private boolean ready = true;
-    private final int size = Constants.CHARACTER_SIZE;
+    Bomb(Executable explosion) {
+        this.explosion = explosion;
+        new ExplosiveTimer().start();
+    }
 
-    private Image image = new Image(getClass().getResourceAsStream(Constants.BOMB_IMAGE));
-    private ImageView imageView = new ImageView(image);
+    @Override
+    public boolean destroy() {
+        return false;
+    }
+
+    @Override
+    public boolean isPermeable() {
+        return false;
+    }
+
+    @Override
+    protected String getImagePath() {
+        return Constants.BOMB_IMAGE;
+    }
+
+    private class ExplosiveTimer extends Thread { // это и есть таймер
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(Constants.EXPLOSION_TIME);
+                explosion.execute();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
