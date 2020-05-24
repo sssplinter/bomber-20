@@ -14,8 +14,8 @@ public class Hero extends Character {
     }
 
     @Override
-    protected Boolean destroy() {
-        return null;
+    public boolean destroy() {
+        return false;
     }
 
     @Override
@@ -50,4 +50,5 @@ public class Hero extends Character {
     public boolean canPlantBomb() {
         return ((availableBombCount > 0) && (hasSpaceForBomb()));
     }
+
 }

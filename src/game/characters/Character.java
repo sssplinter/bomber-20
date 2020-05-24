@@ -16,6 +16,10 @@ public abstract class Character extends Block {
         this.levelData = levelData;
     }
 
+    public boolean isAlive() {
+        return alive;
+    }
+
     private int getAvailableLeftSteps() {
         for (int i = 1; i <= moveSpeed; i++) {
             final boolean firstBlockIsPermeable = getBlockPermeableByOffset(-i, 0);
@@ -91,5 +95,15 @@ public abstract class Character extends Block {
     public void moveDown() {
         final int availableSteps = getAvailableDownSteps();
         setLayoutY(getLayoutY() + availableSteps);
+    }
+
+    public void explosive(final int posX, final int posY){
+        final double cordX = getLayoutX();
+        final double cordY = getLayoutY();
+        final int characterPosX = LevelData.getPositionByCoordinate(cordX);
+        final int characterPosY = LevelData.getPositionByCoordinate(cordY);
+        if (characterPosX == posX && characterPosY == posY){
+            alive = false;
+        }
     }
 }

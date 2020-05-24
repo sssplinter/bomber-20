@@ -10,8 +10,8 @@ public class Enemy extends Character {
     }
 
     @Override
-    protected Boolean destroy() {
-        return null;
+    public boolean destroy() {
+        return false;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Enemy extends Character {
 
     @Override
     protected String getImagePath() {
-        return Constants.BOMB_IMAGE;
+        return Constants.CHARACTER_IMAGE;
     }
 }
 
