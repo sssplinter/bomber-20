@@ -12,7 +12,8 @@ public abstract class Block extends Pane {
         this.getChildren().add(imageView);
     }
 
-    protected abstract Boolean destroy();
+    //todo переименовтаь нахуй
+    public abstract boolean destroy();
 
     public abstract boolean isPermeable();
 

@@ -9,8 +9,8 @@ public class BackgroundBlock extends Block {
     }
 
     @Override
-    protected Boolean destroy() {
-        return false;
+    public boolean destroy() {
+        return true;
     }
 
     @Override
