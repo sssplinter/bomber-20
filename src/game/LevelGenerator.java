@@ -30,9 +30,10 @@ public class LevelGenerator {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        assert scan != null;
         final int matrixWidth = scan.nextInt();
+        int matrixHeight = scan.nextInt();
 
-        final int matrixHeight = scan.nextInt();
         final int[][] matrix = new int[matrixWidth][matrixHeight];
         for (int i = 0; i < matrixHeight; i++) {
             for (int j = 0; j < matrixWidth; j++) {
