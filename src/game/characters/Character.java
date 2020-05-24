@@ -1,20 +1,19 @@
-package game;
+package game.characters;
 
+import game.Constants;
+import game.LevelData;
 import game.blocks.Block;
 
 public abstract class Character extends Block {
 
     private boolean alive = true;
 
-    private int moveSpeed = 16;
+    private int moveSpeed = 5;
 
-    private final LevelData levelData;
+    protected final LevelData levelData;
 
     Character(LevelData levelData) {
         this.levelData = levelData;
-//        final Image image = new Image(getClass().getResourceAsStream(Constants.CHARACTER_IMAGE));
-//        final ImageView imageView = new ImageView(image);
-//        this.getChildren().add(imageView);
     }
 
     private int getAvailableLeftSteps() {

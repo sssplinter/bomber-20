@@ -1,7 +1,11 @@
-package game;
+package game.characters;
 
-public class Hero extends Character {
-    Hero(LevelData levelData) {
+import game.Constants;
+import game.LevelData;
+
+public class Enemy extends Character {
+
+    public Enemy(LevelData levelData) {
         super(levelData);
     }
 
@@ -17,6 +21,7 @@ public class Hero extends Character {
 
     @Override
     protected String getImagePath() {
-        return Constants.CHARACTER_IMAGE;
+        return Constants.BOMB_IMAGE;
     }
 }
+
