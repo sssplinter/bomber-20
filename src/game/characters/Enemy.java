@@ -10,7 +10,7 @@ public class Enemy extends Character {
     }
 
     @Override
-    public boolean destroy() {
+    public boolean isDestroyable() {
         return false;
     }
 

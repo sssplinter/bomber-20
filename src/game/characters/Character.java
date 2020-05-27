@@ -73,8 +73,8 @@ public abstract class Character extends Block {
     private boolean getBlockPermeableByOffset(final int offsetX, final int offsetY) {
         final int posX = (int) (getLayoutX() + offsetX);
         final int posY = (int) (getLayoutY() + offsetY);
-        final Block firstBlock = levelData.getBlockByCoordinates(posX, posY);
-        return firstBlock.isPermeable();
+        final Block block = levelData.getBlockByCoordinates(posX, posY);
+        return block.isPermeable();
     }
 
     public void moveLeft() {
@@ -97,12 +97,12 @@ public abstract class Character extends Block {
         setLayoutY(getLayoutY() + availableSteps);
     }
 
-    public void explosive(final int posX, final int posY){
+    public void explosive(final int posX, final int posY) {
         final double cordX = getLayoutX();
         final double cordY = getLayoutY();
         final int characterPosX = LevelData.getPositionByCoordinate(cordX);
         final int characterPosY = LevelData.getPositionByCoordinate(cordY);
-        if (characterPosX == posX && characterPosY == posY){
+        if (characterPosX == posX && characterPosY == posY) {
             alive = false;
         }
     }
