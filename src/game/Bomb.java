@@ -14,7 +14,7 @@ public class Bomb extends Block {
 
     @Override
     public boolean isDestroyable() {
-        return false;
+        return true;
     }
 
     @Override
