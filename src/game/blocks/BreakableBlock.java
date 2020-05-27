@@ -5,7 +5,7 @@ import game.Constants;
 public class BreakableBlock extends Block {
 
     @Override
-    public boolean destroy() {
+    public boolean isDestroyable() {
         return true;//TODO
     }
 

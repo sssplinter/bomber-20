@@ -5,7 +5,7 @@ import game.Constants;
 public class BorderBlock extends Block {
 
     @Override
-    public boolean destroy() {
+    public boolean isDestroyable() {
         return false;
     }
 

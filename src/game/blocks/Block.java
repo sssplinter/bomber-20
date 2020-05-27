@@ -6,14 +6,14 @@ import javafx.scene.layout.Pane;
 
 public abstract class Block extends Pane {
 
-    public Block() {
+    protected Block() {
         final Image image = new Image(getClass().getResourceAsStream(getImagePath()));
         final ImageView imageView = new ImageView(image);
         this.getChildren().add(imageView);
     }
 
     //todo переименовтаь нахуй
-    public abstract boolean destroy();
+    public abstract boolean isDestroyable();
 
     public abstract boolean isPermeable();
 
