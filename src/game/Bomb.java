@@ -13,13 +13,13 @@ public class Bomb extends Block {
     }
 
     @Override
-    public boolean destroy() {
+    public boolean isDestroyable() {
         return false;
     }
 
     @Override
     public boolean isPermeable() {
-        return false;
+        return true;
     }
 
     @Override
