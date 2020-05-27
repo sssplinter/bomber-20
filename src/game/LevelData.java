@@ -4,20 +4,25 @@ import com.sun.istack.internal.Nullable;
 import game.blocks.BackgroundBlock;
 import game.blocks.Block;
 import game.blocks.BlockFactory;
-import game.characters.Character;
 import game.characters.Enemy;
 import game.characters.Hero;
 import utilities.Executable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LevelData {
 
     private boolean gameInProcess = true;
     private boolean needRebuilding = true;
     private Hero bomberman;
-    private Enemy enemy;
 
     public Hero getBomberman() {
         return bomberman;
+    }
+
+    public List<Enemy> getEnemies() {
+        return enemies;
     }
 
     public Boolean getGameInProcess() {
@@ -35,15 +40,16 @@ public class LevelData {
     //TODO  заменить на матрицу блоков
     private Block[][] levelContent;
 
-    private Character[] enemies;
+    private ArrayList<Enemy> enemies;
 
     public Block[][] getLevelContent() {
         return levelContent;
     }
 
+    private final BlockFactory blockFactory;
+
     LevelData(final int[][] blockCodes) {
-        final BlockFactory blockFactory = new BlockFactory();
-        int temp = blockCodes[0].length;
+        blockFactory = new BlockFactory();
 
         levelContent = new Block[blockCodes.length][blockCodes[0].length];
         for (int i = 0; i < levelContent.length; i++) {
@@ -51,22 +57,32 @@ public class LevelData {
                 levelContent[i][j] = blockFactory.createBlock(blockCodes[i][j]);
             }
         }
-        creteHero();
-        bomberman.setLayoutX(getBlockCordX(1));
-        bomberman.setLayoutY(getBlockCordY(1));
 
-        createEnemy();
-        enemy.setLayoutX(getBlockCordX(1));
-        enemy.setLayoutY(getBlockCordY(2));
+        creteHero();
+        createEnemy(blockCodes);
     }
 
     private void creteHero() {
         bomberman = new Hero(this);
+        bomberman.setLayoutX(getBlockCordX(1));
+        bomberman.setLayoutY(getBlockCordY(1));
     }
 
-    private void createEnemy() {
-        enemy = new Enemy(this);
+    private void createEnemy(final int[][] blockCodes) {
+        enemies = new ArrayList<>();
+        for (int i = 0; i < blockCodes.length; i++) {
+            for (int j = 0; j < blockCodes[0].length; j++) {
+                final int code = blockCodes[i][j];
+                if (blockFactory.isEnemy(code)) {
+                    final Enemy enemy = new Enemy(this);
+                    enemy.setLayoutX(getBlockCordX(i));
+                    enemy.setLayoutY(getBlockCordY(j));
+                    enemies.add(enemy);
+                }
+            }
+        }
     }
+
 
     public int getWidth() {
         return levelContent.length;
@@ -78,11 +94,11 @@ public class LevelData {
 
     @Nullable
     public Block getBlockByPosition(final int posX, final int posY) {
-        if (posX < 0 || posY < 0){
+        if (posX < 0 || posY < 0) {
             return null;
         }
 
-        if (posX >= levelContent.length || posY >= levelContent[0].length){
+        if (posX >= levelContent.length || posY >= levelContent[0].length) {
             return null;
         }
         return levelContent[posX][posY];
@@ -95,7 +111,7 @@ public class LevelData {
     }
 
     public static int getPositionByCoordinate(final double cord) {
-        return ((int) cord / Constants.CHARACTER_SIZE);
+        return ((int) cord / Constants.BLOCK_SIZE);
     }
 
     public void plantBomb(final int posX, final int posY) {
@@ -147,41 +163,76 @@ public class LevelData {
             bomberman.releaseBomb();
             explosiveTop();
             explosiveBottom();
+            explosiveLeft();
+            explosiveRight();;
             //todo вызвать для остальных 3 направлений
             explosion(posX, posY);
         }
 
         private void explosiveTop() {
             boolean active = true;
-            for ( int i = 0; i < Constants.EXPLOSIVE_POWER && active; i++){
+            for (int i = 0; i < Constants.EXPLOSIVE_POWER && active; i++) {
                 final int posY = this.posY - i;
                 final Block block = getBlockByPosition(posX, posY);
-                if (block != null){
-                    active = block.destroy();
-                    if (active){
+                if (block != null) {
+                    active = block.isDestroyable();
+                    if (active) {
                         explosion(posX, posY);
                     }
                 }
-
-                bomberman.explosive(posX, posY);
-                explosion(posX, posY);
+                explosionAlert(posX, posY);
             }
         }
 
         private void explosiveBottom() {
             boolean active = true;
-            for ( int i = 0; i < Constants.EXPLOSIVE_POWER && active; i++){
+            for (int i = 0; i < Constants.EXPLOSIVE_POWER && active; i++) {
                 final int posY = this.posY + i;
                 final Block block = getBlockByPosition(posX, posY);
-                if (block != null){
-                    active = block.destroy();
-                    if (active){
+                if (block != null) {
+                    active = block.isDestroyable();
+                    if (active) {
                         explosion(posX, posY);
                     }
                 }
+                explosionAlert(posX, posY);
+            }
+        }
 
-                bomberman.explosive(posX, posY);
+        private void explosiveLeft() {
+            boolean active = true;
+            for (int i = 0; i < Constants.EXPLOSIVE_POWER && active; i++) {
+                final int posX = this.posX - i;
+                final Block block = getBlockByPosition(posX, posY);
+                if (block != null) {
+                    active = block.isDestroyable();
+                    if (active) {
+                        explosion(posX, posY);
+                    }
+                }
+                explosionAlert(posX, posY);
+            }
+        }
 
+        private void explosiveRight() {
+            boolean active = true;
+            for (int i = 0; i < Constants.EXPLOSIVE_POWER && active; i++) {
+                final int posX = this.posX + i;
+                final Block block = getBlockByPosition(posX, posY);
+                if (block != null) {
+                    active = block.isDestroyable();
+                    if (active) {
+                        explosion(posX, posY);
+                    }
+                }
+                explosionAlert(posX, posY);
+            }
+        }
+
+        private void explosionAlert(final int posX, final int posY){
+            bomberman.explosive(posX, posY);
+            for (final Enemy enemy : enemies) {
+                enemy.explosive(posX, posY);
             }
         }
         // todo сделать еще три метода в друиге стороны
