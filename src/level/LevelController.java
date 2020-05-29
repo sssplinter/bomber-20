@@ -1,44 +1,47 @@
 package level;
 
-import game.Character;
+import game.characters.Enemy;
+import game.characters.Hero;
 import game.LevelData;
-import game.LevelGenerator;
 import game.blocks.Block;
 import javafx.application.Application;
-import javafx.event.EventHandler;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class LevelController {
+import java.util.List;
+
+public class LevelController extends Application {
 
     private LevelData levelData;
-    private Character bomber;
-
 
     @FXML
-    Pane root;
-//todo,не listener
+    private Pane root;
+
     private void setListeners() {
         final Scene scene = root.getScene();
         scene.setOnKeyPressed(event -> {
             if ((event.getCode() == KeyCode.UP) || event.getCode() == KeyCode.W) {
-                bomber.moveUp();
+                levelData.getBomberman().moveUp();
             }
 
             if ((event.getCode() == KeyCode.DOWN) || event.getCode() == KeyCode.S) {
-                bomber.moveDown();
+                levelData.getBomberman().moveDown();
             }
 
             if ((event.getCode() == KeyCode.LEFT) || event.getCode() == KeyCode.A) {
-                bomber.moveLeft();
+                levelData.getBomberman().moveLeft();
             }
 
             if ((event.getCode() == KeyCode.RIGHT) || event.getCode() == KeyCode.D) {
-                bomber.moveRight();
+                levelData.getBomberman().moveRight();
+            }
+
+            if (event.getCode() == KeyCode.SPACE) {
+                levelData.getBomberman().setBomb();
             }
         });
     }
@@ -55,9 +58,11 @@ public class LevelController {
         root.setPrefHeight(paneHeight);
         root.setPrefWidth(paneWidth);
         renderBackground();
+        new BackgroundRenderingRunnable().start();
     }
 
     private void renderBackground() {
+        clearRoot();
         for (int posX = 0; posX < levelData.getWidth(); posX++) {
             for (int posY = 0; posY < levelData.getHeight(); posY++) {
                 final Block block = levelData.getBlockByPosition(posX, posY);
@@ -65,15 +70,45 @@ public class LevelController {
                 block.setLayoutY(levelData.getBlockCordY(posY));
                 root.getChildren().add(block);
             }
-
         }
-        bomber = levelData.cretePerson();
-        final double layoutX = levelData.getBlockCordX(1);
-        final double layoutY = levelData.getBlockCordY(1);
-        bomber.setLayoutX(layoutX);
-        bomber.setLayoutY(layoutY);
-        root.getChildren().add(bomber);
+        List<Enemy> enemies = levelData.getEnemies();
+        for(final Enemy enemy : enemies){
+            if(enemy.isAlive()) {
+                root.getChildren().add(enemy);
+            }
+        }
+
+        final Hero bomberman = levelData.getBomberman();
+        if (bomberman.isAlive()) {
+            root.getChildren().add(levelData.getBomberman());
+        } else {
+            //TODO вывести сообщение о проебеи закрыть нахуй игру
+        }
     }
 
+    private void clearRoot() {
+        root.getChildren().clear();
+    }
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+    }
+
+    private class BackgroundRenderingRunnable extends Thread {
+        @Override
+        public void run() {
+            while (levelData.getGameInProcess()) {
+                if (levelData.getNeedRebuilding()) {
+                    Platform.runLater(LevelController.this::renderBackground);
+                    levelData.setNeedRebuilding();
+                }
+            }
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
