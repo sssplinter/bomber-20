@@ -1,45 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainMenu.MainMenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="620.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="complexityMenu.ComplexityMenuController">
    <children>
-      <ImageView fitHeight="154.0" fitWidth="368.0" layoutX="116.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="easyGame" fitHeight="32.0" fitWidth="111.0" layoutX="251.0" layoutY="160.0" onMouseEntered="#onEasyEntered" onMousePressed="#onEasyGamePressed" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/bombermer.png" />
+            <Image url="@../images/easy.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
       </ImageView>
-      <ImageView fx:id="newGame" fitHeight="45.0" fitWidth="155.0" layoutX="223.0" layoutY="247.0" onMouseEntered="#onStartEntered" onMousePressed="#onNewGamePressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="hardGame" fitHeight="67.0" fitWidth="257.0" layoutX="192.0" layoutY="280.0" onMouseEntered="#onHardEntered" onMousePressed="#onHardGamePressed" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/NG.png" />
+            <Image url="@../images/hard.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
       </ImageView>
-      <ImageView fx:id="exit" fitHeight="22.0" fitWidth="191.0" layoutX="262.0" layoutY="345.0" onMouseEntered="#onExitEntered" onMousePressed="#onExitPressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="normalGame" fitHeight="41.0" fitWidth="197.0" layoutX="222.0" layoutY="221.0" onMouseEntered="#onNormalEntered" onMousePressed="#onNormalGamePressed" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/exit.png" />
+            <Image url="@../images/normal.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
       </ImageView>
-      <ImageView fx:id="information" fitHeight="24.0" fitWidth="191.0" layoutX="214.0" layoutY="294.0" onMouseEntered="#onInformationEntered" onMousePressed="#onInformationPressed" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/inf.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="pointer1" fitHeight="25.0" fitWidth="31.0" layoutX="164.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../images/pointer.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="pointer2" fitHeight="24.0" fitWidth="32.0" layoutX="164.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../images/pointer.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="pointer3" fitHeight="24.0" fitWidth="32.0" layoutX="164.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer1" fitHeight="25.0" fitWidth="31.0" layoutX="179.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="pointer2" fitHeight="24.0" fitWidth="32.0" layoutX="179.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/pointer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pointer3" fitHeight="24.0" fitWidth="32.0" layoutX="179.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/pointer.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="529.0" layoutX="73.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/chooseDif.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bomb1" fitHeight="56.0" fitWidth="41.0" layoutX="414.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/bomb_level.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bomb2" fitHeight="56.0" fitWidth="41.0" layoutX="414.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/bomb_level.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bomb3" fitHeight="56.0" fitWidth="41.0" layoutX="455.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/bomb_level.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bomb4" fitHeight="56.0" fitWidth="41.0" layoutX="414.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/bomb_level.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bomb5" fitHeight="56.0" fitWidth="41.0" layoutX="455.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/bomb_level.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bomb6" fitHeight="56.0" fitWidth="41.0" layoutX="497.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/bomb_level.png" />
+         </image>
+      </ImageView>
+      <Line endX="-54.81421661376953" endY="192.4000244140625" layoutX="69.0" layoutY="269.0" startX="-52.99998092651367" startY="-253.0" stroke="#bdbaba" strokeWidth="2.0" />
+      <Line endX="166.0" endY="166.4000244140625" layoutX="439.0" layoutY="295.0" startX="-423.3999938964844" startY="166.39999389648438" stroke="#d5cbcb" strokeWidth="2.0" />
+      <Line endX="163.199951171875" endY="166.39999389648438" layoutX="440.0" layoutY="-152.0" startX="-423.3999938964844" startY="166.39999389648438" stroke="#d5cbcb" strokeWidth="2.0" />
+      <Line endX="-53.0" endY="182.20001220703125" layoutX="657.0" layoutY="281.0" startX="-52.800048828125" startY="-265.6000061035156" stroke="#bdbaba" strokeLineCap="BUTT" strokeWidth="2.0" />
    </children>
 </Pane>
