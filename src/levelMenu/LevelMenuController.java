@@ -1,13 +1,11 @@
 package levelMenu;
 
-import game.Constants;
 import game.LevelData;
 import game.LevelGenerator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import level.LevelController;
@@ -38,5 +36,20 @@ public class LevelMenuController {
     @FXML
     public void onFirstLevelClick() {
       initLevelController(1);
+    }
+    public void onSecondLevelClick() {
+      initLevelController(2);
+    }
+
+    public void onThirdLevelClick() {
+      initLevelController(3);
+    }
+
+    public void onFourthLevelClick() {
+      initLevelController(4);
+    }
+
+    public void onFifthLevelClick() {
+      initLevelController(5);
     }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainMenu.MainMenuController">
+   <children>
+      <ImageView fitHeight="154.0" fitWidth="368.0" layoutX="116.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bombermer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="newGame" fitHeight="45.0" fitWidth="155.0" layoutX="223.0" layoutY="247.0" onMouseEntered="#onStartEntered" onMousePressed="#onNewGamePressed" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/NG.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="exit" fitHeight="22.0" fitWidth="191.0" layoutX="262.0" layoutY="345.0" onMouseEntered="#onExitEntered" onMousePressed="#onExitPressed" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/exit.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="information" fitHeight="24.0" fitWidth="191.0" layoutX="214.0" layoutY="294.0" onMouseEntered="#onInformationEntered" onMousePressed="#onInformationPressed" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/inf.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pointer1" fitHeight="25.0" fitWidth="31.0" layoutX="164.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/pointer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pointer2" fitHeight="24.0" fitWidth="32.0" layoutX="164.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/pointer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pointer3" fitHeight="24.0" fitWidth="32.0" layoutX="164.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/pointer.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
