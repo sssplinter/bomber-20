@@ -1,4 +1,4 @@
-package mainMenu;
+package complexityMenu;
 
 import game.Constants;
 import javafx.fxml.FXML;
@@ -7,16 +7,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainMenuController {
+public class ComplexityMenuController {
 
     @FXML
-    ImageView pointer1;
+    private ImageView pointer1;
 
     @FXML
     ImageView pointer2;
@@ -25,35 +23,53 @@ public class MainMenuController {
     ImageView pointer3;
 
     @FXML
-    ImageView newGame;
+    ImageView easyGame;
 
     @FXML
-    ImageView information;
+    ImageView normalGame;
 
     @FXML
-    ImageView exit;
+    ImageView hardGame;
 
-    private Image start;
-    private Image selStart;
-    private Image infImg;
-    private Image selInfImg;
-    private Image exitImg;
-    private Image selExitImg;
+    @FXML
+    ImageView bomb1;
+
+    @FXML
+    ImageView bomb2;
+
+    @FXML
+    ImageView bomb3;
+    @FXML
+    ImageView bomb4;
+
+    @FXML
+    ImageView bomb5;
+
+    @FXML
+    ImageView bomb6;
+
+
+    private Image easy;
+    private Image selEasy;
+    private Image normal;
+    private Image selNormal;
+    private Image hard;
+    private Image selHard;
 
 
     @FXML
     public void initialize() {
-        start = new Image(Constants.START_IMAGE);
-        selStart = new Image(Constants.SELECTED_START_IMAGE);
-        infImg = new Image(Constants.INF_IMAGE);
-        selInfImg = new Image(Constants.SELECTED_INF_IMAGE);
-        exitImg= new Image(Constants.EXIT_IMAGE);
-        selExitImg = new Image(Constants.SELECTED_EXIT_IMAGE);
+        easy = new Image(Constants.EASY_IMAGE);
+        selEasy = new Image(Constants.SELECTED_EASY_IMAGE);
+        normal = new Image(Constants.NORMAL_IMAGE);
+        selNormal = new Image(Constants.SELECTED_NORMAL_IMAGE);
+        hard = new Image(Constants.HARD_IMAGE);
+        selHard = new Image(Constants.SELECTED_HARD_IMAGE);
     }
 
     @FXML
-    public void onNewGamePressed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../levelMenu/levelMenu.fxml"));
+    public void onEasyGamePressed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../testLevelMenu/levelMenuScene.fxml"));
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
         stage.setTitle("BOMBERMEN");
@@ -62,42 +78,60 @@ public class MainMenuController {
     }
 
     @FXML
-    public void onInformationPressed(){
+    public void onNormalGamePressed() {
 
     }
 
     @FXML
-    public void onExitPressed(){
-        
+    public void onHardGamePressed() {
+
+    }
+
+    public void setInvisible(){
+        bomb1.setVisible(false);
+        bomb2.setVisible(false);
+        bomb3.setVisible(false);
+        bomb4.setVisible(false);
+        bomb5.setVisible(false);
+        bomb6.setVisible(false);
     }
 
     @FXML
-    public void onStartEntered() {
+    public void onEasyEntered() {
+        setInvisible();
         pointer2.setVisible(false);
-        information.setImage(infImg);
+        normalGame.setImage(normal);
         pointer3.setVisible(false);
-        exit.setImage(exitImg);
+        hardGame.setImage(hard);
         pointer1.setVisible(true);
-        newGame.setImage(selStart);
+        easyGame.setImage(selEasy);
+        bomb1.setVisible(true);
     }
 
     @FXML
-    public void onInformationEntered() {
+    public void onNormalEntered() {
+        setInvisible();
         pointer1.setVisible(false);
-        newGame.setImage(start);
+        easyGame.setImage(easy);
         pointer3.setVisible(false);
-        exit.setImage(exitImg);
+        hardGame.setImage(hard);
         pointer2.setVisible(true);
-        information.setImage(selInfImg);
+        normalGame.setImage(selNormal);
+        bomb2.setVisible(true);
+        bomb3.setVisible(true);
     }
 
     @FXML
-    public void onExitEntered() {
+    public void onHardEntered() {
+        setInvisible();
         pointer1.setVisible(false);
-        newGame.setImage(start);
+        easyGame.setImage(easy);
         pointer2.setVisible(false);
-        information.setImage(infImg);
+        normalGame.setImage(normal);
         pointer3.setVisible(true);
-        exit.setImage(selExitImg);
+        hardGame.setImage(selHard);
+        bomb4.setVisible(true);
+        bomb5.setVisible(true);
+        bomb6.setVisible(true);
     }
 }
