@@ -2,6 +2,7 @@ package game.characters;
 
 import game.Constants;
 import game.LevelData;
+import game.Point;
 import game.blocks.Block;
 
 public abstract class Character extends Block {
@@ -105,5 +106,27 @@ public abstract class Character extends Block {
         if (characterPosX == posX && characterPosY == posY) {
             alive = false;
         }
+    }
+
+    public CharacterFrame getCharacterFrame() {
+        final Point topLeftPoint = new Point(getLayoutX(), getLayoutY());
+        final Point topRightPoint = new Point(getLayoutX() + Constants.CHARACTER_SIZE, getLayoutY());
+        final Point downLeftPoint = new Point(getLayoutX(), getLayoutY() + Constants.CHARACTER_SIZE);
+        final Point downRightPoint = new Point(getLayoutX() + Constants.CHARACTER_SIZE,
+                getLayoutY() + Constants.CHARACTER_SIZE);
+
+        return new CharacterFrame(topLeftPoint, topRightPoint, downLeftPoint, downRightPoint);
+    }
+
+    public boolean isOverlayCharacter(final Character other){
+        final CharacterFrame otherFrame = other.getCharacterFrame();
+        final CharacterFrame thisFrame = getCharacterFrame();
+
+        if (thisFrame.isOverLay(otherFrame)){
+            alive = false;
+            return true;
+        }
+
+        return false;
     }
 }

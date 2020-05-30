@@ -4,6 +4,7 @@ import com.sun.istack.internal.Nullable;
 import game.blocks.BackgroundBlock;
 import game.blocks.Block;
 import game.blocks.BlockFactory;
+import game.characters.Character;
 import game.characters.Enemy;
 import game.characters.Hero;
 import utilities.Executable;
@@ -60,6 +61,12 @@ public class LevelData {
 
         creteHero();
         createEnemy(blockCodes);
+
+        new OverlayThread().start();
+    }
+
+    public boolean isActive(){
+        return bomberman.isAlive();
     }
 
     private void creteHero() {
@@ -235,6 +242,18 @@ public class LevelData {
                 enemy.explosive(posX, posY);
             }
         }
-        // todo сделать еще три метода в друиге стороны
+    }
+
+    private class OverlayThread extends Thread{
+        @Override
+        public void run() {
+            while (LevelData.this.isActive()){
+                for (final Character enemy : enemies){
+                    if (bomberman.isOverlayCharacter(enemy)) {
+                        needRebuilding = true;
+                    }
+                }
+            }
+        }
     }
 }
