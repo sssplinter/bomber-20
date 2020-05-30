@@ -1,5 +1,6 @@
 package level;
 
+import game.Constants;
 import game.characters.Enemy;
 import game.characters.Hero;
 import game.LevelData;
@@ -7,7 +8,10 @@ import game.blocks.Block;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -20,6 +24,9 @@ public class LevelController extends Application {
 
     @FXML
     private Pane root;
+
+    @FXML
+    private Pane gameOverPane;
 
     private void setListeners() {
         final Scene scene = root.getScene();
@@ -71,19 +78,41 @@ public class LevelController extends Application {
                 root.getChildren().add(block);
             }
         }
+
         List<Enemy> enemies = levelData.getEnemies();
-        for(final Enemy enemy : enemies){
-            if(enemy.isAlive()) {
+        boolean  haveEnemies = false;
+        for (final Enemy enemy : enemies) {
+            if (enemy.isAlive()) {
                 root.getChildren().add(enemy);
+                haveEnemies = true;
             }
         }
+
 
         final Hero bomberman = levelData.getBomberman();
         if (bomberman.isAlive()) {
             root.getChildren().add(levelData.getBomberman());
+            if(!haveEnemies) {
+               endOfTheGame(Constants.WIN_IMAGE);
+            }
         } else {
-            //TODO вывести сообщение о проебеи закрыть нахуй игру
+            endOfTheGame(Constants.YOU_DIED_IMAGE);
         }
+    }
+
+    private void endOfTheGame(final  String imagePath){ //todo возвращенеи к левел меню
+        Pane gameOverPane = new Pane();
+        gameOverPane.setPrefWidth(root.getWidth());
+        gameOverPane.setPrefHeight(root.getHeight());
+        gameOverPane.setStyle("-fx-background-color: #000000");
+        Image img = new Image(imagePath);
+        ImageView imageView = new ImageView(img);
+        int temp = (int) ((root.getWidth() / 2) - (int) (img.getWidth() /  2));
+        imageView.setLayoutX(temp);
+        temp = (int) ((root.getHeight() / 2) - (int) (img.getHeight() /2));
+        imageView.setLayoutY(temp);
+        root.getChildren().add(gameOverPane);
+        root.getChildren().add(imageView);
     }
 
     private void clearRoot() {

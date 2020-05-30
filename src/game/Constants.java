@@ -54,7 +54,9 @@ public class Constants {
     public static final String LEV10_IMAGE = "images/level10.png";
     public static final String SEL_LEV10_IMAGE = "images/sel10.png";
 
-    public static final String LEVEL_1_PATH = "levels/level1";
+
+    public static  final String YOU_DIED_IMAGE = "images/youDied.png";
+    public static  final String WIN_IMAGE = "images/youWin.png";
 }
 
 //todo зависить от объектов - не по-пацански
