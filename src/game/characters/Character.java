@@ -9,7 +9,7 @@ public abstract class Character extends Block {
 
     private boolean alive = true;
 
-    private int moveSpeed = 5;
+    private int moveSpeed = 3;
 
     protected final LevelData levelData;
 
