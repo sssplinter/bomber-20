@@ -7,10 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import settings.Settings;
+import utilities.StageUtils;
 
 import java.io.IOException;
 
@@ -59,8 +59,9 @@ public class MainMenuController {
         Stage stage = new Stage();
         stage.setTitle("BOMBERMEN");
         stage.setScene(new Scene(root, 620, 480));
-        stage.showAndWait();
-        Settings.getInstance();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.show();
+        StageUtils.closeStage(pointer1);
     }
 
     @FXML
@@ -70,7 +71,7 @@ public class MainMenuController {
 
     @FXML
     public void onExitPressed(){
-
+        StageUtils.closeStage(newGame);
     }
 
     @FXML

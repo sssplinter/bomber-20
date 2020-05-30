@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 
@@ -24,6 +25,7 @@ public class Main extends Application {
         Parent root = (Parent) loader.load();
         Stage stage= new Stage();
         stage.setTitle("BOMBERMEN");
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(new Scene(root, 620, 480));
         stage.showAndWait();
     }

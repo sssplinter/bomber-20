@@ -16,149 +16,154 @@
       <Line endX="166.0" endY="166.4000244140625" layoutX="440.0" layoutY="296.0" startX="-423.3999938964844" startY="166.39999389648438" stroke="#d5cbcb" strokeWidth="2.0" />
       <Line endX="163.199951171875" endY="166.39999389648438" layoutX="441.0" layoutY="-151.0" startX="-423.3999938964844" startY="166.39999389648438" stroke="#d5cbcb" strokeWidth="2.0" />
       <Line endX="-53.0" endY="182.20001220703125" layoutX="658.0" layoutY="282.0" startX="-52.800048828125" startY="-265.6000061035156" stroke="#bdbaba" strokeLineCap="BUTT" strokeWidth="2.0" />
-      <ImageView fx:id="pointer1" fitHeight="25.0" fitWidth="31.0" layoutX="82.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer1" fitHeight="25.0" fitWidth="31.0" layoutX="83.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer2" fitHeight="24.0" fitWidth="32.0" layoutX="82.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer2" fitHeight="24.0" fitWidth="32.0" layoutX="83.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer3" fitHeight="24.0" fitWidth="32.0" layoutX="82.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer3" fitHeight="24.0" fitWidth="32.0" layoutX="83.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level1" fitHeight="25.0" fitWidth="161.0" layoutX="114.0" layoutY="139.0" onMouseEntered="#onLevel1" onMousePressed="#level1Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level1" fitHeight="25.0" fitWidth="161.0" layoutX="115.0" layoutY="125.0" onMouseEntered="#onLevel1" onMousePressed="#level1Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level4" fitHeight="25.0" fitWidth="161.0" layoutX="110.0" layoutY="311.0" onMouseEntered="#onLevel4" onMousePressed="#level4Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level4" fitHeight="25.0" fitWidth="161.0" layoutX="111.0" layoutY="297.0" onMouseEntered="#onLevel4" onMousePressed="#level4Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level2" fitHeight="25.0" fitWidth="161.0" layoutX="115.0" layoutY="197.0" onMouseEntered="#onLevel2" onMousePressed="#level2Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level2" fitHeight="25.0" fitWidth="161.0" layoutX="116.0" layoutY="183.0" onMouseEntered="#onLevel2" onMousePressed="#level2Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level3" fitHeight="25.0" fitWidth="161.0" layoutX="111.0" layoutY="253.0" onMouseEntered="#onLevel3" onMousePressed="#level3Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level3" fitHeight="25.0" fitWidth="161.0" layoutX="112.0" layoutY="239.0" onMouseEntered="#onLevel3" onMousePressed="#level3Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level5" fitHeight="25.0" fitWidth="161.0" layoutX="110.0" layoutY="371.0" onMouseEntered="#onLevel5" onMousePressed="#level5Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level5" fitHeight="25.0" fitWidth="161.0" layoutX="111.0" layoutY="357.0" onMouseEntered="#onLevel5" onMousePressed="#level5Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer11" fitHeight="38.0" fitWidth="35.0" layoutX="80.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer11" fitHeight="38.0" fitWidth="35.0" layoutX="81.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer21" fitHeight="38.0" fitWidth="35.0" layoutX="80.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer21" fitHeight="38.0" fitWidth="35.0" layoutX="81.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer31" fitHeight="38.0" fitWidth="35.0" layoutX="80.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer31" fitHeight="38.0" fitWidth="35.0" layoutX="81.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer4" fitHeight="38.0" fitWidth="35.0" layoutX="80.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer4" fitHeight="38.0" fitWidth="35.0" layoutX="81.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer5" fitHeight="38.0" fitWidth="35.0" layoutX="80.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer5" fitHeight="38.0" fitWidth="35.0" layoutX="81.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bomb1" fitHeight="56.0" fitWidth="41.0" layoutX="383.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="bomb1" fitHeight="56.0" fitWidth="41.0" layoutX="384.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/bomb_level.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bomb2" fitHeight="56.0" fitWidth="41.0" layoutX="383.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="bomb2" fitHeight="56.0" fitWidth="41.0" layoutX="384.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/bomb_level.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bomb3" fitHeight="56.0" fitWidth="41.0" layoutX="424.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="bomb3" fitHeight="56.0" fitWidth="41.0" layoutX="425.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/bomb_level.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bomb4" fitHeight="56.0" fitWidth="41.0" layoutX="383.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="bomb4" fitHeight="56.0" fitWidth="41.0" layoutX="384.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/bomb_level.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bomb5" fitHeight="56.0" fitWidth="41.0" layoutX="424.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="bomb5" fitHeight="56.0" fitWidth="41.0" layoutX="425.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/bomb_level.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bomb6" fitHeight="56.0" fitWidth="41.0" layoutX="466.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="bomb6" fitHeight="56.0" fitWidth="41.0" layoutX="467.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/bomb_level.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level6" fitHeight="25.0" fitWidth="161.0" layoutX="380.0" layoutY="139.0" onMouseEntered="#onLevel6" onMousePressed="#level6Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level6" fitHeight="25.0" fitWidth="161.0" layoutX="381.0" layoutY="125.0" onMouseEntered="#onLevel6" onMousePressed="#level6Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level6.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level9" fitHeight="25.0" fitWidth="161.0" layoutX="380.0" layoutY="311.0" onMouseEntered="#onLevel9" onMousePressed="#level9Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level9" fitHeight="25.0" fitWidth="161.0" layoutX="381.0" layoutY="297.0" onMouseEntered="#onLevel9" onMousePressed="#level9Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level9.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level7" fitHeight="25.0" fitWidth="161.0" layoutX="380.0" layoutY="197.0" onMouseEntered="#onLevel7" onMousePressed="#level7Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level7" fitHeight="25.0" fitWidth="161.0" layoutX="381.0" layoutY="183.0" onMouseEntered="#onLevel7" onMousePressed="#level7Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level7.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level8" fitHeight="25.0" fitWidth="161.0" layoutX="380.0" layoutY="253.0" onMouseEntered="#onLevel8" onMousePressed="#level8Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level8" fitHeight="25.0" fitWidth="161.0" layoutX="381.0" layoutY="239.0" onMouseEntered="#onLevel8" onMousePressed="#level8Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level8.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="level10" fitHeight="25.0" fitWidth="161.0" layoutX="380.0" layoutY="371.0" onMouseEntered="#onLevel10" onMousePressed="#level10Pressed" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level10" fitHeight="25.0" fitWidth="161.0" layoutX="381.0" layoutY="357.0" onMouseEntered="#onLevel10" onMousePressed="#level10Pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/level10.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer6" fitHeight="38.0" fitWidth="35.0" layoutX="345.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer6" fitHeight="38.0" fitWidth="35.0" layoutX="346.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer7" fitHeight="38.0" fitWidth="35.0" layoutX="345.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer7" fitHeight="38.0" fitWidth="35.0" layoutX="346.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer8" fitHeight="38.0" fitWidth="35.0" layoutX="345.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer8" fitHeight="38.0" fitWidth="35.0" layoutX="346.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer9" fitHeight="38.0" fitWidth="35.0" layoutX="345.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer9" fitHeight="38.0" fitWidth="35.0" layoutX="346.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pointer10" fitHeight="38.0" fitWidth="35.0" layoutX="345.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="pointer10" fitHeight="38.0" fitWidth="35.0" layoutX="346.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pointer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="backImg" fitHeight="41.0" fitWidth="86.0" layoutX="42.0" layoutY="401.0" onMouseEntered="#onBackEntered" onMousePressed="#onBackToLevelMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/backToLevelMenu.png" />
          </image>
       </ImageView>
    </children>

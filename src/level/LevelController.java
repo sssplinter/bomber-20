@@ -8,14 +8,18 @@ import game.blocks.Block;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.geometry.Rectangle2D;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import utilities.StageUtils;
 
+import java.io.IOException;
 import java.util.List;
 
 public class LevelController extends Application {
@@ -88,7 +92,6 @@ public class LevelController extends Application {
             }
         }
 
-
         final Hero bomberman = levelData.getBomberman();
         if (bomberman.isAlive()) {
             root.getChildren().add(levelData.getBomberman());
@@ -100,19 +103,43 @@ public class LevelController extends Application {
         }
     }
 
-    private void endOfTheGame(final  String imagePath){ //todo возвращенеи к левел меню
+    private void endOfTheGame(final  String imagePath)  { //todo возвращенеи к левел меню
         Pane gameOverPane = new Pane();
         gameOverPane.setPrefWidth(root.getWidth());
         gameOverPane.setPrefHeight(root.getHeight());
         gameOverPane.setStyle("-fx-background-color: #000000");
+        root.getChildren().add(gameOverPane);
         Image img = new Image(imagePath);
         ImageView imageView = new ImageView(img);
         int temp = (int) ((root.getWidth() / 2) - (int) (img.getWidth() /  2));
         imageView.setLayoutX(temp);
         temp = (int) ((root.getHeight() / 2) - (int) (img.getHeight() /2));
         imageView.setLayoutY(temp);
-        root.getChildren().add(gameOverPane);
         root.getChildren().add(imageView);
+        Image navigationImg = new Image(Constants.BACK_TO_LEVEL_MENU);
+        Image selNavigationImg = new Image(Constants.SEL_BACK_TO_LEVEL_MENU);
+        ImageView navigationImageView = new ImageView(navigationImg);
+        navigationImageView.setLayoutX(30);
+        temp = (int) (root.getHeight()) - (int)(navigationImg.getHeight()) - 30;
+        navigationImageView.setLayoutY(temp);
+        navigationImageView.setOnMouseEntered(e -> navigationImageView.setImage(selNavigationImg));
+        navigationImageView.setOnMouseExited(e -> navigationImageView.setImage(navigationImg));
+        navigationImageView.setOnMousePressed(e -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../testLevelMenu/levelMenuScene.fxml"));
+            Parent root = null;
+            try {
+                root = (Parent) loader.load();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            Stage stage = new Stage();
+            stage.setTitle("BOMBERMEN");
+            stage.setScene(new Scene(root, 620, 480));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.show();
+            StageUtils.closeStage(gameOverPane);
+        });
+        root.getChildren().add(navigationImageView);
     }
 
     private void clearRoot() {
