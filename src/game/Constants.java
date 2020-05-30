@@ -5,8 +5,8 @@ public class Constants {
     public static final int CHARACTER_SIZE = 48;
     static final int ENEMY_SIZE = 48;
 
-    public static int EXPLOSION_TIME = 3 * 1000;
-    public static int EXPLOSIVE_POWER = 4;
+    public static int EXPLOSION_TIME = 4 * 1000;
+    public static int EXPLOSIVE_POWER = 3;
 
     public static final String ICON_IMAGE = "../images/icon.ico";
 
@@ -17,6 +17,7 @@ public class Constants {
     public static final String UNBREAKABLE_BLOCK_IMAGE = "../../images/unB.png";
     public static final String BREAKABLE_BOCK_IMAGE = "../../images/br.png";
     public static final String BACKGROUND_BLOCK_IMAGE = "../../images/bg.png";
+    public static final String EXPLOSION_BLOCK_IMAGE = "../../images/fireHigh.png";
 
 
     public static final String START_IMAGE = "images/NG.png";
@@ -57,6 +58,8 @@ public class Constants {
 
     public static  final String YOU_DIED_IMAGE = "images/youDied.png";
     public static  final String WIN_IMAGE = "images/youWin.png";
+    public static  final String BACK_TO_LEVEL_MENU = "images/backToLevelMenu.png";
+    public static  final String SEL_BACK_TO_LEVEL_MENU = "images/selBackToLevMenu.png";
 }
 
 //todo зависить от объектов - не по-пацански

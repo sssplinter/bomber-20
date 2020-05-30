@@ -27,7 +27,7 @@ public class Bomb extends Block {
         return Constants.BOMB_IMAGE;
     }
 
-    private class ExplosiveTimer extends Thread { // это и есть таймер
+    private class ExplosiveTimer extends Thread { // таймер
         @Override
         public void run() {
             try {
