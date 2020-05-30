@@ -125,7 +125,7 @@ public class LevelController extends Application {
         navigationImageView.setOnMouseEntered(e -> navigationImageView.setImage(selNavigationImg));
         navigationImageView.setOnMouseExited(e -> navigationImageView.setImage(navigationImg));
         navigationImageView.setOnMousePressed(e -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../testLevelMenu/levelMenuScene.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../levelMenu/levelMenuScene.fxml"));
             Parent root = null;
             try {
                 root = (Parent) loader.load();
