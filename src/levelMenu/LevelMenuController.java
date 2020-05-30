@@ -1,4 +1,4 @@
-package testLevelMenu;
+package levelMenu;
 
 import game.Constants;
 import game.LevelData;
