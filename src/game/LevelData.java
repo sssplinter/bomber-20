@@ -4,6 +4,7 @@ import com.sun.istack.internal.Nullable;
 import game.blocks.BackgroundBlock;
 import game.blocks.Block;
 import game.blocks.BlockFactory;
+import game.blocks.ExplosionBlock;
 import game.characters.Character;
 import game.characters.Enemy;
 import game.characters.Hero;
@@ -150,9 +151,26 @@ public class LevelData {
     /////////////////
 
     private void explosion(final int posX, final int posY) {
-        levelContent[posX][posY] = new BackgroundBlock();
+        levelContent[posX][posY] = new ExplosionBlock(new FireTask(posX, posY));
         //todo анимация
         needRebuilding = true;
+    }
+
+    private class FireTask implements Executable {
+
+        private final int posX;
+        private final int posY;
+
+        private FireTask(int posX, int posY) {
+            this.posX = posX;
+            this.posY = posY;
+        }
+
+        @Override
+        public void execute() {
+            levelContent[posX][posY] = new BackgroundBlock();
+            needRebuilding = true;
+        }
     }
 
     private class ExplosiveTask implements Executable {
@@ -160,7 +178,7 @@ public class LevelData {
         private final int posX;
         private final int posY;
 
-        ExplosiveTask(final int posX, final int posY) { // todo создать экземпяр, передав позицию
+        ExplosiveTask(final int posX, final int posY) { //  создать экземпяр, передав позицию
             this.posX = posX;
             this.posY = posY;
         }
@@ -172,7 +190,6 @@ public class LevelData {
             explosiveBottom();
             explosiveLeft();
             explosiveRight();;
-            //todo вызвать для остальных 3 направлений
             explosion(posX, posY);
         }
 
@@ -186,8 +203,9 @@ public class LevelData {
                     if (active) {
                         explosion(posX, posY);
                     }
+
                 }
-                explosionAlert(posX, posY);
+                notifyExplosive(posX, posY);
             }
         }
 
@@ -202,7 +220,7 @@ public class LevelData {
                         explosion(posX, posY);
                     }
                 }
-                explosionAlert(posX, posY);
+                notifyExplosive(posX, posY);
             }
         }
 
@@ -217,7 +235,7 @@ public class LevelData {
                         explosion(posX, posY);
                     }
                 }
-                explosionAlert(posX, posY);
+                notifyExplosive(posX, posY);
             }
         }
 
@@ -232,11 +250,11 @@ public class LevelData {
                         explosion(posX, posY);
                     }
                 }
-                explosionAlert(posX, posY);
+                notifyExplosive(posX, posY);
             }
         }
 
-        private void explosionAlert(final int posX, final int posY){
+        private void notifyExplosive(final int posX, final int posY){
             bomberman.explosive(posX, posY);
             for (final Enemy enemy : enemies) {
                 enemy.explosive(posX, posY);

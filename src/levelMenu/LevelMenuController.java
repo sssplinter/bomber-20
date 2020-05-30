@@ -1,4 +1,4 @@
-package levelMenu;
+package testLevelMenu;
 
 import game.Constants;
 import game.LevelData;
@@ -11,7 +11,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import level.LevelController;
+import utilities.StageUtils;
+
 import java.io.IOException;
 
 public class LevelMenuController {
@@ -57,6 +60,8 @@ public class LevelMenuController {
     ImageView pointer9;
     @FXML
     ImageView pointer10;
+    @FXML
+    ImageView backImg;
 
     private Image lev1;
     private Image lev2;
@@ -68,6 +73,7 @@ public class LevelMenuController {
     private Image lev8;
     private Image lev9;
     private Image lev10;
+    private Image back;
     private Image selLev1;
     private Image selLev2;
     private Image selLev3;
@@ -78,30 +84,56 @@ public class LevelMenuController {
     private Image selLev8;
     private Image selLev9;
     private Image selLev10;
+    private Image selBack;
 
     @FXML
-    public void initialize() {
-        lev1 = new Image(Constants.LEV1_IMAGE);
-        lev2 = new Image(Constants.LEV2_IMAGE);
-        lev3 = new Image(Constants.LEV3_IMAGE);
-        lev4 = new Image(Constants.LEV4_IMAGE);
-        lev5 = new Image(Constants.LEV5_IMAGE);
-        lev6 = new Image(Constants.LEV6_IMAGE);
-        lev7 = new Image(Constants.LEV7_IMAGE);
-        lev8 = new Image(Constants.LEV8_IMAGE);
-        lev9 = new Image(Constants.LEV9_IMAGE);
-        lev10 = new Image(Constants.LEV10_IMAGE);
+    public void level1Pressed() {
+        initLevelController(1);
+    }
 
-        selLev1 = new Image(Constants.SEL_LEV1_IMAGE);
-        selLev2 = new Image(Constants.SEL_LEV2_IMAGE);
-        selLev3 = new Image(Constants.SEL_LEV3_IMAGE);
-        selLev4 = new Image(Constants.SEL_LEV4_IMAGE);
-        selLev5 = new Image(Constants.SEL_LEV5_IMAGE);
-        selLev6 = new Image(Constants.SEL_LEV6_IMAGE);
-        selLev7 = new Image(Constants.SEL_LEV7_IMAGE);
-        selLev8 = new Image(Constants.SEL_LEV8_IMAGE);
-        selLev9 = new Image(Constants.SEL_LEV9_IMAGE);
-        selLev10 = new Image(Constants.SEL_LEV10_IMAGE);
+    @FXML
+    public void level2Pressed() {
+        initLevelController(2);
+    }
+
+    @FXML
+    public void level3Pressed() {
+        initLevelController(3);
+    }
+
+    @FXML
+    public void level4Pressed() {
+        initLevelController(4);
+    }
+
+    @FXML
+    public void level5Pressed() {
+        initLevelController(5);
+    }
+
+    @FXML
+    public void level6Pressed() {
+        initLevelController(6);
+    }
+
+    @FXML
+    public void level7Pressed() {
+        initLevelController(7);
+    }
+
+    @FXML
+    public void level8Pressed() {
+        initLevelController(8);
+    }
+
+    @FXML
+    public void level9Pressed() {
+        initLevelController(9);
+    }
+
+    @FXML
+    public void level10Pressed() {
+        initLevelController(10);
     }
 
     private void initLevelController(final int levelNumber) {
@@ -115,6 +147,7 @@ public class LevelMenuController {
             Stage stage = new Stage();
             stage.setTitle("LEVEL " + levelNumber);
             stage.setScene(new Scene(root, levelData.getPaneWidth(), levelData.getPaneHeight()));
+            stage.initStyle(StageStyle.TRANSPARENT);
             controller.setLevelData(levelData);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
@@ -124,28 +157,42 @@ public class LevelMenuController {
     }
 
     @FXML
-    public void onFirstLevelClick() {
-        initLevelController(1);
+    public void initialize() {
+        lev1 = new Image(Constants.LEV1_IMAGE);
+        lev2 = new Image(Constants.LEV2_IMAGE);
+        lev3 = new Image(Constants.LEV3_IMAGE);
+        lev4 = new Image(Constants.LEV4_IMAGE);
+        lev5 = new Image(Constants.LEV5_IMAGE);
+        lev6 = new Image(Constants.LEV6_IMAGE);
+        lev7 = new Image(Constants.LEV7_IMAGE);
+        lev8 = new Image(Constants.LEV8_IMAGE);
+        lev9 = new Image(Constants.LEV9_IMAGE);
+        lev10 = new Image(Constants.LEV10_IMAGE);
+        back = new Image(Constants.BACK_TO_LEVEL_MENU);
+
+        selLev1 = new Image(Constants.SEL_LEV1_IMAGE);
+        selLev2 = new Image(Constants.SEL_LEV2_IMAGE);
+        selLev3 = new Image(Constants.SEL_LEV3_IMAGE);
+        selLev4 = new Image(Constants.SEL_LEV4_IMAGE);
+        selLev5 = new Image(Constants.SEL_LEV5_IMAGE);
+        selLev6 = new Image(Constants.SEL_LEV6_IMAGE);
+        selLev7 = new Image(Constants.SEL_LEV7_IMAGE);
+        selLev8 = new Image(Constants.SEL_LEV8_IMAGE);
+        selLev9 = new Image(Constants.SEL_LEV9_IMAGE);
+        selLev10 = new Image(Constants.SEL_LEV10_IMAGE);
+        selBack = new Image(Constants.SEL_BACK_TO_LEVEL_MENU);
     }
 
     @FXML
-    public void onSecondLevelClick() {
-        initLevelController(2);
-    }
-
-    @FXML
-    public void onThirdLevelClick() {
-        initLevelController(3);
-    }
-
-    @FXML
-    public void onFourthLevelClick() {
-        initLevelController(4);
-    }
-
-    @FXML
-    public void onFifthLevelClick() {
-        initLevelController(5);
+    private void onBackToLevelMenu() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../complexityMenu/complexityMenuScene.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("BOMBERMEN");
+        stage.setScene(new Scene(root, 620, 480));
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.show();
+        StageUtils.closeStage(pointer1);
     }
 
     private void setUnselected() {
@@ -159,6 +206,7 @@ public class LevelMenuController {
         level8.setImage(lev8);
         level9.setImage(lev9);
         level10.setImage(lev10);
+        backImg.setImage(back);
 
         pointer1.setVisible(false);
         pointer2.setVisible(false);
@@ -173,73 +221,78 @@ public class LevelMenuController {
     }
 
     @FXML
-    public void firstEntered() {
+    public void onLevel1() {
         setUnselected();
         level1.setImage(selLev1);
         pointer1.setVisible(true);
     }
 
     @FXML
-    public void secondEntered() {
+    public void onLevel2() {
         setUnselected();
         level2.setImage(selLev2);
         pointer2.setVisible(true);
     }
 
     @FXML
-    public void thirdEntered() {
+    public void onLevel3() {
         setUnselected();
         level3.setImage(selLev3);
         pointer3.setVisible(true);
     }
 
     @FXML
-    public void fourthEntered() {
+    public void onLevel4() {
         setUnselected();
         level4.setImage(selLev4);
         pointer4.setVisible(true);
     }
 
     @FXML
-    public void fifthEntered() {
+    public void onLevel5() {
         setUnselected();
         level5.setImage(selLev5);
         pointer5.setVisible(true);
     }
 
     @FXML
-    public void sixthEntered(){
+    public void onLevel6() {
         setUnselected();
         level6.setImage(selLev6);
         pointer6.setVisible(true);
     }
 
     @FXML
-    public void seventhEntered() {
+    public void onLevel7() {
         setUnselected();
         level7.setImage(selLev7);
         pointer7.setVisible(true);
     }
 
     @FXML
-    public void eighthEntered() {
+    public void onLevel8() {
         setUnselected();
         level8.setImage(selLev8);
         pointer8.setVisible(true);
     }
 
     @FXML
-    public void ninthEntered() {
+    public void onLevel9() {
         setUnselected();
         level9.setImage(selLev9);
         pointer9.setVisible(true);
     }
 
     @FXML
-    public void tenthEntered() {
+    public void onLevel10() {
         setUnselected();
         level10.setImage(selLev10);
         pointer10.setVisible(true);
     }
 
+    @FXML
+    public void onBackEntered(){
+        setUnselected();
+        backImg.setImage(selBack);
+    }
 }
