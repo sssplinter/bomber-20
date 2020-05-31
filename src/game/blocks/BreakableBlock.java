@@ -18,4 +18,9 @@ public class BreakableBlock extends Block {
     protected String getImagePath() {
         return Constants.BREAKABLE_BOCK_IMAGE;
     }
+
+    @Override
+    public  boolean isRefractory() {
+        return  true;
+    }
 }

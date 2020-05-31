@@ -12,10 +12,13 @@ public abstract class Block extends Pane {
         this.getChildren().add(imageView);
     }
 
-    //todo переименовтаь нахуй
     public abstract boolean isDestroyable();
 
     public abstract boolean isPermeable();
+
+    public boolean isRefractory() {
+        return false;
+    }
 
     protected abstract String getImagePath();
 

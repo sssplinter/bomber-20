@@ -18,4 +18,9 @@ public class BorderBlock extends Block {
     protected String getImagePath() {
         return Constants.UNBREAKABLE_BLOCK_IMAGE;
     }
+
+    @Override
+    public  boolean isRefractory() {
+        return  true;
+    }
 }
