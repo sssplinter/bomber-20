@@ -1,45 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 
 
 <Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Pane fx:id="gameOverPane" prefHeight="280.0" prefWidth="255.0" style="-fx-background-color: #000000;">
-         <children>
-            <ImageView fitHeight="35.0" fitWidth="134.0" layoutX="68.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/lose.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="74.0" fitWidth="142.0" layoutX="16.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/gOE.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="153.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/gOE.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="28.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/gameOver.png" />
-               </image>
-            </ImageView>
-            <Line endX="116.81425476074219" endY="1.9999876022338867" layoutX="125.0" layoutY="14.0" startX="-111.20713806152344" startY="0.9857969284057617" stroke="WHITE" strokeWidth="2.0" />
-            <Line endX="-112.58580017089844" endY="239.2142333984375" layoutX="127.0" layoutY="26.0" startX="-113.00001525878906" startY="-9.599990844726562" stroke="WHITE" strokeWidth="2.0" />
-            <Line endX="126.81425476074219" endY="0.2142333984375" layoutX="115.0" layoutY="266.0" startX="-99.58580017089844" startY="0.2142333984375" stroke="WHITE" strokeWidth="2.0" />
-            <Line endX="-112.18574523925781" endY="232.2142333984375" layoutX="355.0" layoutY="33.0" startX="-112.18574523925781" startY="-16.000011444091797" stroke="WHITE" strokeWidth="2.0" />
-            <ImageView fitHeight="74.0" fitWidth="67.0" layoutX="94.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/OK.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </children>
+
 </Pane>
