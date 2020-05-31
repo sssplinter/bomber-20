@@ -151,6 +151,7 @@ public class LevelMenuController {
             controller.setLevelData(levelData);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
+            StageUtils.closeStage(pointer1);
         } catch (IOException e) {
             e.printStackTrace();
         }
