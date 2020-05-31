@@ -86,5 +86,10 @@
       <Line endX="166.0" endY="166.4000244140625" layoutX="439.0" layoutY="295.0" startX="-423.3999938964844" startY="166.39999389648438" stroke="#d5cbcb" strokeWidth="2.0" />
       <Line endX="163.199951171875" endY="166.39999389648438" layoutX="440.0" layoutY="-152.0" startX="-423.3999938964844" startY="166.39999389648438" stroke="#d5cbcb" strokeWidth="2.0" />
       <Line endX="-53.0" endY="182.20001220703125" layoutX="657.0" layoutY="281.0" startX="-52.800048828125" startY="-265.6000061035156" stroke="#bdbaba" strokeLineCap="BUTT" strokeWidth="2.0" />
+      <ImageView fx:id="backImg" fitHeight="41.0" fitWidth="86.0" layoutX="38.0" layoutY="409.0" onMouseEntered="#onBackEntered" onMousePressed="#onBackToLevelMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/backToLevelMenu.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
